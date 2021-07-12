@@ -1,0 +1,88 @@
+<core:FragmentDefinition 
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+<!-- <Page > -->
+    <!-- <content >  -->
+    <VBox>
+    <VBox>
+    <!-- form -->
+    		<Table   showSeparators="All" class="sapUiResponsiveMargin sapUiResponsivePadding" width="auto">
+			<headerToolbar>
+				<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+					<content>
+						<core:Icon src="sap-icon://kpi-managing-my-area" size="1.5rem" color="#9AAF0C"></core:Icon>
+						<Title text="Cardex" titleStyle="Auto" width="auto"/>
+						<ToolbarSpacer/>
+						<SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"
+							liveChange="onLiveChangeSearch"/>
+					</content>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column >
+					<header>
+						<Text text="Código" width="auto" maxLines="2"/>
+					</header>
+				</Column>
+				<Column >
+					<header>
+						<Text text="Lote" width="auto" maxLines="2"/>
+					</header>
+				</Column>
+				<Column >
+					<header>
+						<Text text="Categoria" width="auto" maxLines="2"/>
+					</header>
+				</Column>
+				<Column >
+					<header>
+						<Text text="FechaLote" width="auto" maxLines="2"/>
+					</header>
+				</Column>
+				<Column >
+					<header>
+						<Text text="FechaVenc" width="auto" maxLines="2"/>
+					</header>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Active">
+					<cells>
+						<Text text="{KnowledgeareaCode}"/>
+					</cells>
+					<cells>
+						<Text text="{Name}"/>
+					</cells>
+					<cells>
+						<Text text="{LineKnowledgeDetails/Description}"/>
+					</cells>
+					<cells>
+						<Text text="{CreatedBy} - {CreatedFullName}"/>
+					</cells>
+					<cells>
+						<Text text="{path:'CreatedAt'}"/>
+					</cells>
+					<cells>
+						<Text text="{path:'CreatedTime'}"/>
+					</cells>
+					<cells>
+						<Text text="{ModifiedBy} - {ModifiedFullName} "/>
+					</cells>
+					<cells>
+						<Text text="{path:'ModifiedAt'}"/>
+					</cells>
+					<cells>
+						<Text text="{path:'ModifiedTime'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+    </VBox>
+ 
+    </VBox>
+    <!-- </content> -->
+<!-- </Page> -->
+</core:FragmentDefinition>

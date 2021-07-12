@@ -99,7 +99,11 @@
           "name": "Proveedor",
           "pattern": "proveedor",
           "target": ["Proveedor"]
-        }{
+        },{
+          "name": "Productos",
+          "pattern": "productos",
+          "target": ["Productos"]
+        },{
           "name": "Ventas",
           "pattern": "ventas",
           "target": ["Ventas"]
@@ -144,6 +148,12 @@
           "clearControlAggregation": false,
           "viewId": "Ventas",
           "viewName": "Ventas"
+        },"Productos": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Productos",
+          "viewName": "Productos"
         }
       }
     }

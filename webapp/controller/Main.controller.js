@@ -32,8 +32,13 @@ sap.ui.define([
                         "name":"Reporte",
                         "path":"Reporte"
                         
+                    },{
+                        "name":"Productos",
+                        "path":"Productos"
+                        
                     }]; 
                     this.getView().setModel(new JSONModel(list),"modelNavigation");
+                    
                 } catch (error) {
                 }
             },

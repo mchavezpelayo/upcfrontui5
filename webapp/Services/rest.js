@@ -1,11 +1,11 @@
 sap.ui.define([
 ], function (require, factory) {
     'use strict';
-    const URL = "https://jsonplaceholder.typicode.com/todos/1";
+    const URL = "http://34.203.218.85:5000/api/";
     return {
-        getReq (){
+        getReq (path){
             return new Promise((resolve, reject) => {
-                fetch(URL)
+                fetch(URL+path)
                     .then(i => resolve(i))
                     .catch(e => reject(e))
             })

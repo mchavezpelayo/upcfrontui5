@@ -22,29 +22,29 @@
 				</OverflowToolbar>
 			</headerToolbar>
 			<columns>
-				<Column >
+				<Column>
 					<header>
-						<Text text="Código" width="auto" maxLines="2"/>
+						<Text text="Código" width="auto" maxLines="2" />
 					</header>
 				</Column>
-				<Column >
+				<Column>
 					<header>
-						<Text text="Lote" width="auto" maxLines="2"/>
+						<Text text="Lote" width="auto" maxLines="2" />
 					</header>
 				</Column>
-				<Column >
+				<Column>
 					<header>
-						<Text text="Categoria" width="auto" maxLines="2"/>
+						<Text text="Categoria" width="auto" maxLines="2" />
 					</header>
 				</Column>
-				<Column >
+				<Column>
 					<header>
-						<Text text="FechaLote" width="auto" maxLines="2"/>
+						<Text text="FechaLote" width="auto" maxLines="2" />
 					</header>
 				</Column>
-				<Column >
+				<Column>
 					<header>
-						<Text text="FechaVenc" width="auto" maxLines="2"/>
+						<Text text="FechaVenc" width="auto" maxLines="2" />
 					</header>
 				</Column>
 			</columns>

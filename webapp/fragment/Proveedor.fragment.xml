@@ -9,7 +9,7 @@
 				<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
 					<content>
 						<core:Icon src="sap-icon://kpi-managing-my-area" size="1.5rem" color="#9AAF0C"></core:Icon>
-						<Title text="Cardex" titleStyle="Auto" width="auto"/>
+						<Title text="Proveedor" titleStyle="Auto" width="auto"/>
 						<ToolbarSpacer/>
 						<SearchField placeholder="Search" showSearchButton="true" visible="true" width="auto"
 							liveChange="onLiveChangeSearch"/>
@@ -19,28 +19,28 @@
 			<columns>
 				<Column >
 					<header>
-						<Text text="Código" width="auto" maxLines="2"/>
+						<Text text="Nombre" width="auto" maxLines="2"/>
 					</header>
 				</Column>
 				<Column >
 					<header>
-						<Text text="Lote" width="auto" maxLines="2"/>
+						<Text text="Razón Social" width="auto" maxLines="2"/>
 					</header>
 				</Column>
 				<Column >
 					<header>
-						<Text text="Categoria" width="auto" maxLines="2"/>
+						<Text text="Producto" width="auto" maxLines="2"/>
 					</header>
 				</Column>
 				<Column >
 					<header>
-						<Text text="FechaLote" width="auto" maxLines="2"/>
+						<Text text="FechaEntrega" width="auto" maxLines="2"/>
 					</header>
 				</Column>
 				<Column >
-					<header>
-						<Text text="FechaVenc" width="auto" maxLines="2"/>
-					</header>
+					<!-- <header> -->
+						<!-- <Text text="FechaVenc" width="auto" maxLines="2"/> -->
+					<!-- </header> -->
 				</Column>
 			</columns>
 			<items>
@@ -70,7 +70,8 @@
 						<Text text="{path:'ModifiedAt',formatter:'.formatter.formatDate'}"/>
 					</cells>
 					<cells>
-						<Text text="{path:'ModifiedTime',formatter:'.formatter.formatterEdmTimeToTime'}"/>
+						<Button press="callProveedor" text="Solicitar"/>
+						<!-- <Text text="{path:'ModifiedTime',formatter:'.formatter.formatterEdmTimeToTime'}"/> -->
 					</cells>
 				</ColumnListItem>
 			</items>

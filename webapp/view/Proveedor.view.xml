@@ -19,7 +19,7 @@
     <detailPages>
     	<semantic:DetailPage>
         <semantic:content >
-        <core:Fragment fragmentName="upcsdd.fragment.Main" type="XML"/>
+        <core:Fragment fragmentName="upcsdd.fragment.Proveedor" type="XML"/>
 
         </semantic:content>
         	<semantic:customFooterContent>

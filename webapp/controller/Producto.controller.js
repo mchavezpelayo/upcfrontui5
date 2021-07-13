@@ -40,18 +40,24 @@ sap.ui.define([
                         
                     }]; 
                     this.getView().setModel(new JSONModel(list),"modelNavigation");
-                    services.getReq("products/").then(data=>data.json())
-                    .then(data=>{
-                        console.log(data);
-                        oView.setModel(new JSONModel(data.products),"modelResources")
-                    })
-                    .catch(e=>{
-                        console.log(e);
-                    })
+                   
+                    oView.setModel(new JSONModel({"Producto":{categoria:"",pventa:"",cantidad:"",pcompra:"",producto:""}}),"modelGlobal");
+                    this.onConfigurationInit();
                 } catch (error) {
                 }
             },
             onConfigurationInit(){
+                this.callget();
+            },
+            callget(){
+                services.getReq("products/").then(data=>data.json())
+                .then(data=>{
+                    console.log(data);
+                    oView.setModel(new JSONModel(data.products),"modelResources")
+                })
+                .catch(e=>{
+                    console.log(e);
+                })
             },
             onItemSelect(oEvent){
                 let path = oEvent.getSource().data("custom");
@@ -69,6 +75,42 @@ sap.ui.define([
                    txt="S/."+p+".00";
                }
                return txt;
+            },
+            onCreatePress:function(){
+                var sFrg = "upcsdd.view.Dialog.CreateProduct";
+                if (!this.dialogMassive) {
+                    this.dialogMassive = sap.ui.xmlfragment("frgCreateProduct", sFrg, this);
+                    this.dialogMassive.addStyleClass(
+                        "sapUiResponsivePadding--content sapUiResponsivePadding--header sapUiResponsivePadding--footer sapUiResponsivePadding--subHeader"
+                    );
+                    oView.addDependent(this.dialogMassive);
+                }
+                this.dialogMassive.open();
+            },
+            liveChange(text){
+                // return text.toLocaleUpperCase();
+            },
+            createProduct(){
+                let data = oView.getModel("modelGlobal").getProperty("/Producto");
+                console.log(data);
+                let obj = {
+                    cost_product:data.pcompra,
+                    desc_product:data.producto,
+                    id_category:data.categoria,
+                    price_product:data.pventa,
+                    stock:data.cantidad
+                }
+                services.postReq("products/",obj).then(i=>{
+                    this.callget();
+                    this.dialogMassive.close();
+                    this.clearDTO();
+                })
+                .catch(e=>{
+                    console.log(e);
+                })
+            },
+            clearDTO(){
+                let data = oView.getModel("modelGlobal").setProperty("/Producto",{})
             }
         });
     });

@@ -34,7 +34,7 @@ A Fiori application.
 
 steeps
 
-1- npm run init 
+1- npm install 
 
 2- npm run start
 

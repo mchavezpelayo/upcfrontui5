@@ -14,10 +14,6 @@ sap.ui.define([
                 try {
                     // let data = await services.getReq();
                     // console.log(data);
-                      // let data = await services.getReq();
-                    // console.log(data);
-                   // let data = await services.getReq();
-                    // console.log(data);
                     oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                     let list = [{
                         "name":"Clientes",

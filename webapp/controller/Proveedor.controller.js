@@ -1,24 +1,21 @@
 sap.ui.define([
     "./BaseController",
     "../Services/rest",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageToast"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-    function (BaseController, services,JSONModel) {
+    function (BaseController, services,JSONModel,MessageToast) {
         "use strict";
         var oRouter = null;
         var oView = null;
-        return BaseController.extend("upcsdd.controller.Producto", {
+        return BaseController.extend("upcsdd.controller.Proveedor", {
             onInit: async function () {
                 try {
-                    // let data = await services.getReq();
-                    // console.log(data);
                     oView = this.getView();
                     oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                   // let data = await services.getReq();
-                    // console.log(data);
                      let list = [{
                         "name":"Clientes",
                         "path":"Client"
@@ -42,7 +39,9 @@ sap.ui.define([
                         
                     }]; 
                     this.getView().setModel(new JSONModel(list),"modelNavigation"); 
-                    oView.setModel(new JSONModel({"Producto":{categoria:"",pventa:"",cantidad:"",pcompra:"",producto:""}}),"modelGlobal");
+                    oView.setModel(new JSONModel({
+                        "Solicitud":{producto:"",cantidad:""}
+                }),"modelGlobal");
                     this.onConfigurationInit();
                 } catch (error) {
                 }
@@ -51,10 +50,10 @@ sap.ui.define([
                 this.callget();
             },
             callget(){
-                services.getReq("products/").then(data=>data.json())
+                services.getReq("proveedor","dev").then(data=>data.json())
                 .then(data=>{
                     console.log(data);
-                    oView.setModel(new JSONModel(data.products),"modelResources")
+                    oView.setModel(new JSONModel(data.data),"modelResources")
                 })
                 .catch(e=>{
                     console.log(e);
@@ -88,8 +87,7 @@ sap.ui.define([
                 }
                 this.dialogMassive.open();
             },
-            liveChange(text){
-                // return text.toLocaleUpperCase();
+            liveChange(text){ 
             },
             createProduct(){
                 let data = oView.getModel("modelGlobal").getProperty("/Producto");
@@ -101,7 +99,7 @@ sap.ui.define([
                     price_product:data.pventa,
                     stock:data.cantidad
                 }
-                services.postReq("products/",obj).then(i=>{
+                services.postReq("products/",obj,"dev").then(i=>{
                     this.callget();
                     this.dialogMassive.close();
                     this.clearDTO();
@@ -112,6 +110,47 @@ sap.ui.define([
             },
             clearDTO(){
                 let data = oView.getModel("modelGlobal").setProperty("/Producto",{})
+            },
+            requestStock(){
+
+                var sFrg = "upcsdd.view.Dialog.CreateSolictud";
+                if (!this.dialogSol) {
+                    this.dialogSol = sap.ui.xmlfragment("frgCreateSolicitud", sFrg, this);
+                    this.dialogSol.addStyleClass(
+                        "sapUiResponsivePadding--content sapUiResponsivePadding--header sapUiResponsivePadding--footer sapUiResponsivePadding--subHeader"
+                    );
+                    oView.addDependent(this.dialogSol);
+                }
+                this.dialogSol.open();
+
+                let obj = {
+                    "cantidad":"20",
+                    "Producto":"Vinos",
+                    "fecha":"2021-07-14",
+                    "createBy":"launica"
+                };
+                   
+                // console.log("__>");
+            },
+            createSolicitud(){
+              let data =  oView.getModel("modelGlobal").getProperty("/Solicitud");
+                console.log(data);
+                data.fecha = new Date().toISOString();
+                data.user = "MCHAVEZ";
+                sap.ui.core.BusyIndicator.show();
+              services.postReq("proveedor/create",data,"dev")
+                    .then(data=> data.json())
+                    .then(data=> {
+                        // console.log(data);
+                        sap.ui.core.BusyIndicator.hide();
+                        this.dialogSol.close();
+                        new MessageToast.show(data.payload, {duration: 1500});
+                    })
+                    .catch(e=>{
+                        this.dialogSol.close();
+                        oView.setBusy.hide()
+                        new MessageToast.show(e);
+                    })
             }
         });
     });

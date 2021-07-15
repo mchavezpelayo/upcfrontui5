@@ -4,7 +4,7 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
 > 
-    		<Table   showSeparators="All" class="sapUiResponsiveMargin sapUiResponsivePadding" width="auto">
+    		<Table  items="{path:'modelResources>/'}" showSeparators="All" class="sapUiResponsiveMargin sapUiResponsivePadding" width="auto">
 			<headerToolbar>
 				<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
 					<content>
@@ -29,49 +29,29 @@
 				</Column>
 				<Column >
 					<header>
-						<Text text="Producto" width="auto" maxLines="2"/>
+						<Text text="Fecha" width="auto" maxLines="2"/>
 					</header>
 				</Column>
 				<Column >
 					<header>
-						<Text text="FechaEntrega" width="auto" maxLines="2"/>
+						<Text text="Solicitar" width="auto" maxLines="2"/>
 					</header>
 				</Column>
-				<Column >
-					<!-- <header> -->
-						<!-- <Text text="FechaVenc" width="auto" maxLines="2"/> -->
-					<!-- </header> -->
-				</Column>
+			 
 			</columns>
 			<items>
 				<ColumnListItem type="Active">
 					<cells>
-						<Text text="{KnowledgeareaCode}"/>
+						<Text text="{modelResources>desc_proveedor}"/>
 					</cells>
 					<cells>
-						<Text text="{Name}"/>
+						<Text text="{modelResources>ruc}"/>
 					</cells>
 					<cells>
-						<Text text="{LineKnowledgeDetails/Description}"/>
+						<Text text="{path:'modelResources>fec_registro',formatter:'.dateShort'}"/>
 					</cells>
 					<cells>
-						<Text text="{CreatedBy} - {CreatedFullName}"/>
-					</cells>
-					<cells>
-						<Text text="{path:'CreatedAt',formatter:'.formatter.formatDate'}"/>
-					</cells>
-					<cells>
-						<Text text="{path:'CreatedTime',formatter:'.formatter.formatterEdmTimeToTime'}"/>
-					</cells>
-					<cells>
-						<Text text="{ModifiedBy} - {ModifiedFullName} "/>
-					</cells>
-					<cells>
-						<Text text="{path:'ModifiedAt',formatter:'.formatter.formatDate'}"/>
-					</cells>
-					<cells>
-						<Button press="callProveedor" text="Solicitar"/>
-						<!-- <Text text="{path:'ModifiedTime',formatter:'.formatter.formatterEdmTimeToTime'}"/> -->
+						<Button press="requestStock" type="success" icon="sap-icon://arrow-right" />
 					</cells>
 				</ColumnListItem>
 			</items>

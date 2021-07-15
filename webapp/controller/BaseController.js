@@ -30,6 +30,9 @@ sap.ui.define([
 				console.log("_------------------------------_");
 				console.log(this);
                 
-            }
+            },
+			dateShort(data=""){
+				return new Date(data).toISOString().split("T")[0]
+			}
 		});
 	});

@@ -2,18 +2,33 @@ sap.ui.define([
 ], function (require, factory) {
     'use strict';
     const URL = "http://34.203.218.85:5000/api/";
+    const URLDEV = "http://localhost:3000/api/"
     return {
-        getReq (path){
+        getReq (path,env="prd"){
+            let u;
+            if(env=="prd"){
+                u = URL;
+            }
+            else{
+                u=URLDEV;
+            }
             return new Promise((resolve, reject) => {
-                fetch(URL+path)
+                fetch(u+path)
                     .then(i => resolve(i))
                     .catch(e => reject(e))
             })
         },
-        postReq(path,body){
+        postReq(path,body,env="prd"){
+            let u;
+            if(env=="prd"){
+                u = URL;
+            }
+            else{
+                u=URLDEV;
+            }
             let headers = new Headers({'content-type':'application/json'})
                return new Promise((resolve, reject) => {
-                fetch(URL+path,{
+                fetch(u+path,{
                     method:"POST",
                     headers,
                     body: JSON.stringify(body)

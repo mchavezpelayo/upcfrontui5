@@ -5,7 +5,7 @@
             <FlexBox width="100%" height="100%" alignItems="Center" alignContent="center" justifyContent="Center">
                 <!-- <VBox> -->
                 <HBox>
-                    <GenericTile header="Clientes" press="toProductos">
+                    <GenericTile header="Clientes" press="toProducts">
                         <TileContent unit="Unit" footer="Footer">
                             <ImageContent src="sap-icon://cart" />
                         </TileContent>

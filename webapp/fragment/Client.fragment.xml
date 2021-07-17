@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:core="sap.ui.core" xmlns="sap.m">
-	<Table showSeparators="All" class="sapUiResponsiveMargin sapUiResponsivePadding" width="auto">
+	<Table showSeparators="All" items="{path:'modelGlobal>/clientes'}" class="sapUiResponsiveMargin sapUiResponsivePadding" width="auto">
 		<headerToolbar>
 			<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
 				<content>
@@ -10,58 +10,57 @@
 				</content>
 			</OverflowToolbar>
 		</headerToolbar>
-	
-		<columns>
-			<Column >
-				<header>
-					<Text text="Nombre" width="auto" maxLines="2"/>
-				</header>
-			</Column>
-			<Column >
-				<header>
-					<Text text="Apellido" width="auto" maxLines="2"/>
-				</header>
-			</Column>
-			<Column >
-				<header>
-					<Text text="Documento" width="auto" maxLines="2"/>
-				</header>
-			</Column>
-			<Column >
-				<header>
-					<Text text="FechaRegistro" width="auto" maxLines="2"/>
-				</header>
-			</Column>
 
+		<columns>
+			<Column>
+				<header>
+					<Text text="Nombre" width="auto" maxLines="2" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Tipo" width="auto" maxLines="2" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Documento" width="auto" maxLines="2" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Telefono" width="auto" maxLines="2" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="email" width="auto" maxLines="2" />
+				</header>
+			</Column>
+			<Column>
+				<Text text="Fecha Registro" width="auto" maxLines="2" />
+			</Column>
 		</columns>
 		<items>
 			<ColumnListItem type="Active">
 				<cells>
-					<Text text="{KnowledgeareaCode}" />
+					<Text text="{modelGlobal>Nombres}" />
 				</cells>
 				<cells>
-					<Text text="{Name}" />
+					<Text text="{path:'modelGlobal>TipoDoc',formatter:'.returnTrim'}" />
 				</cells>
 				<cells>
-					<Text text="{LineKnowledgeDetails/Description}" />
+					<Text text="{modelGlobal>NumDoc}" />
 				</cells>
 				<cells>
-					<Text text="{CreatedBy} - {CreatedFullName}" />
+					<Text text="{modelGlobal>Telefono}" />
+				</cells>
+
+				<cells>
+					<Text text="{path:'modelGlobal>Email'}" />
 				</cells>
 				<cells>
-					<Text text="{path:'CreatedAt',formatter:'.formatter.formatDate'}" />
-				</cells>
-				<cells>
-					<Text text="{path:'CreatedTime',formatter:'.formatter.formatterEdmTimeToTime'}" />
-				</cells>
-				<cells>
-					<Text text="{ModifiedBy} - {ModifiedFullName} " />
-				</cells>
-				<cells>
-					<Text text="{path:'ModifiedAt',formatter:'.formatter.formatDate'}" />
-				</cells>
-				<cells>
-					<Text text="{path:'ModifiedTime',formatter:'.formatter.formatterEdmTimeToTime'}" />
+					<Text text="{path:'modelGlobal>FechaCreacion',formatter:'.parserDate'}" />
 				</cells>
 			</ColumnListItem>
 		</items>

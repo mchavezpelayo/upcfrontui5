@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <Dialog title="Resumen de Venta" contentWidth="auto">
+        <content>
+            <Table id="tablaResumen" items="{path :'ListProduct>/resumenVenta'}" showSeparators="All" class="sapUiResponsiveMargin sapUiResponsivePadding" width="auto" selectionChange="onRowPress">
+                <headerToolbar>
+                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                        <content>
+                            <core:Icon src="sap-icon://kpi-managing-my-area" size="1.5rem" color="#9AAF0C" />
+                            <Title text="Productos" titleStyle="Auto" width="auto" />
+                            <ToolbarSpacer />
+                            <Text id="textPago" />
+                            <!-- <Button text="Hay {ListProduct>/cant} productos seleccionados" icon="sap-icon://cart" press="openResumen" /> -->
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <header>
+                            <Text text="Producto" width="auto" maxLines="2" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Venta Producto" width="auto" maxLines="2" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Cantidad" width="auto" maxLines="2" />
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="{ListProduct>desc_product}" />
+                        </cells>
+                        <cells>
+                            <Text text="{ListProduct>price_product}" />
+                        </cells>
+                        <cells>
+                            <Input width="50px" value="{ListProduct>stock}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <beginButton />
+        <buttons>
+            <Button text="Realizar Compra" type="Default" iconFirst="true" width="auto" custom:custom="CreateProducto" enabled="true" press="createSolicitud" />
+            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" press="onPressClose" />
+        </buttons>
+        <customHeader />
+        <endButton />
+        <subHeader />
+    </Dialog>
+</core:FragmentDefinition>

@@ -94,6 +94,10 @@
           "name": "Client",
           "pattern": "client",
           "target": ["Client"]
+        },{
+          "name": "Catalogo",
+          "pattern": "catalogo",
+          "target": ["Catalogo"]
         },
         {
           "name": "Proveedor",
@@ -123,6 +127,12 @@
           "clearControlAggregation": false,
           "viewId": "Main",
           "viewName": "Main"
+        },  "Catalogo": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Catalogo",
+          "viewName": "Catalogo"
         },
         "Cardex": {
           "viewType": "XML",

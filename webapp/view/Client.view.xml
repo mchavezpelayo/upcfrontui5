@@ -24,7 +24,7 @@
         </semantic:content>
         	<semantic:customFooterContent>
                 <Button id="idSemanticButtonAdd"  icon="sap-icon://add" text="Add"
-                    tooltip="{i18n>ttBotonAgregar}" press="onCreatePress" enabled="{HelpModel>/EnabledBtnAdd}"/>
+                    tooltip="Crear Cliente" press="onCreatePress" enabled="{HelpModel>/EnabledBtnAdd}"/>
                 <Button id="idSemanticButtonDelete"  icon="sap-icon://delete" text="Delete"
                     tooltip="{i18n>ttBotonEliminar}" press="onDeletePress" enabled="{HelpModel>/Enabled}"/>
                 <Button id="idSemanticButtonEdit" icon="sap-icon://edit" text="Edit"

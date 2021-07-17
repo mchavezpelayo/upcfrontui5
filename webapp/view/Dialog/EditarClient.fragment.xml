@@ -15,31 +15,20 @@
 									<Label text="Nombre" required="true"/>
 								</f:label>
 								<f:fields>
-									<Input value="{modelGlobal>/cliente/Nombres}"  maxLength="100" custom:custom="upper" liveChange=".liveChange"/>
+									<Input value="{modelGlobal>/cliente/Nombres}" enabled="true" maxLength="100" custom:custom="upper" liveChange=".liveChange"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Tipo doc">
 								<!-- items="{ path: '/Units'}" -->
-								<!-- <Input value="{modelGlobal>/cliente/TipoDoc}"  maxLength="100" custom:custom="upper" liveChange=".liveChange"/> -->
-									<ComboBox  selectedKey="{modelGlobal>/cliente/TipoDoc}">
-										<core:Item key="DNI" text="DNI"/>
-										<core:Item key="RUC" text="RUC"/>
-									</ComboBox>
+								<Input value="{modelGlobal>/cliente/TipoDoc}" enabled="true" maxLength="100" custom:custom="upper" liveChange=".liveChange"/>
+						
 							</f:FormElement>
 							<f:FormElement >
 								<f:label>
 									<Label text="N° Documento" required="true"/>
 								</f:label>
 								<f:fields>
-									<Input value="{modelGlobal>/cliente/NumDoc}"   maxLength="100" custom:custom="upper" liveChange=".liveChange"/>
-								</f:fields>
-							</f:FormElement>
-							<f:FormElement >
-								<f:label>
-									<Label text="Dirección" required="true"/>
-								</f:label>
-								<f:fields>
-									<Input value="{modelGlobal>/cliente/Direccion}"   maxLength="100" custom:custom="upper" liveChange=".liveChange"/>
+									<Input value="{modelGlobal>/cliente/NumDoc}" enabled="true" maxLength="100" custom:custom="upper" liveChange=".liveChange"/>
 								</f:fields>
 							</f:FormElement>
                             <f:FormElement >
@@ -54,6 +43,7 @@
 							<f:FormElement label="Email">
 								<!-- items="{ path: '/Units'}" -->
 								<Input value="{modelGlobal>/cliente/Email}" maxLength="100" custom:custom="upper" liveChange=".liveChange"/>
+							
 							</f:FormElement>
 							
 						</f:formElements>
@@ -64,7 +54,7 @@
 		<beginButton/>
 		<buttons>
 			<Button text="Save" type="Default" iconFirst="true" width="auto" custom:custom="Editar Cliente"
-                press="onCreateClient"/>
+                press="editarCliente"/>
 			<Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" press="onPressClose"/>
 		</buttons>
 		<customHeader/>

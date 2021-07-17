@@ -1,12 +1,23 @@
-<mvc:View
-    controllerName="upcsdd.controller.Home"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
-    xmlns="sap.m"
->
-<Page id="page" title="La única">
-    <content >
-    <Input placeholder="hola" ></Input>
-    </content>
-</Page>
+<mvc:View controllerName="upcsdd.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Page id="page" title="La única">
+        <content>
+            <!-- <Input placeholder="hola" ></Input> -->
+            <FlexBox width="100%" height="100%" alignItems="Center" alignContent="center" justifyContent="Center">
+                <!-- <VBox> -->
+                <HBox>
+                    <GenericTile header="Clientes" press="toProductos">
+                        <TileContent unit="Unit" footer="Footer">
+                            <ImageContent src="sap-icon://cart" />
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile class="sapUiTinyMarginBegin " header="Administrador" press="toAdmin">
+                        <TileContent unit="Unit" footer="Footer">
+                            <ImageContent src="sap-icon://account" />
+                        </TileContent>
+                    </GenericTile>
+                </HBox>
+                <!-- </VBox> -->
+            </FlexBox>
+        </content>
+    </Page>
 </mvc:View>

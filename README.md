@@ -39,4 +39,7 @@ steeps
 2- npm run start
 
 
+for build app 
+
+
 

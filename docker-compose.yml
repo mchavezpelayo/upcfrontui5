@@ -1,0 +1,9 @@
+version: "3.3"
+services: 
+    web-admin:
+        image: niels58/web-admin:v1
+        restart: always
+        build: 
+            context: .
+        ports:
+            - "8087:80"
